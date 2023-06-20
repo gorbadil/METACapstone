@@ -1,16 +1,21 @@
 import React from "react";
-import Footer from "./Components/Footer";
-import Header from "./Components/Header";
-import Navbar from "./Components/Navbar";
-import Main from "./Components/Main";
+
 import "./App.css";
+import Navbar from "./Components/Navbar/Navbar";
+import Hero from "./Components/Hero/Hero";
+import Highlights from "./Components/Highlights/Highlights";
+import Testimonials from "./Components/Testimonials/Testimonials";
+import About from "./Components/About/About";
+import Footer from "./Components/Footer/Footer";
 
 function App() {
   return (
     <React.Fragment className="App">
-      <Header />
       <Navbar />
-      <Main />
+      <Hero />
+      <Highlights />
+      <Testimonials />
+      <About />
       <Footer />
     </React.Fragment>
   );
