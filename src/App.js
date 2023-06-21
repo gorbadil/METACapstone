@@ -1,23 +1,63 @@
-import React from "react";
+import { useReducer } from 'react';
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+  Outlet,
+} from 'react-router-dom';
+import { AppProvider, ThemeProvider } from './context';
+import { Header, Footer } from './components';
+import './App.css';
+import { Home, BookingPage, ConfirmedBooking } from './pages';
 
-import "./App.css";
-import Navbar from "./Components/Navbar/Navbar";
-import Hero from "./Components/Hero/Hero";
-import Highlights from "./Components/Highlights/Highlights";
-import Testimonials from "./Components/Testimonials/Testimonials";
-import About from "./Components/About/About";
-import Footer from "./Components/Footer/Footer";
+const Root = () => {
+  return (
+    <>
+      <Header />
+      <Outlet />
+      <Footer />
+    </>
+  );
+};
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<Root />}>
+      <Route index element={<Home />} />
+      <Route path="bookings" element={<BookingPage />}>
+        <Route path="thank-you" element={<ConfirmedBooking />} />
+      </Route>
+    </Route>
+  )
+);
 
 function App() {
+  const initialAppState = {
+    previousLocation: ['/'],
+  };
+  const reducer = (state, { type, payload }) => {
+    switch (type) {
+      case 'setPreviousLocation': {
+        return {
+          // ...state,
+          // previousLocation: [...state.previousLocation]
+          //   .slice(0, 1)
+          //   .push(payload),
+        };
+      }
+
+      default:
+        break;
+    }
+  };
+  const [stateGlobal, dispatchGlobal] = useReducer(reducer, initialAppState);
   return (
-    <React.Fragment className="App">
-      <Navbar />
-      <Hero />
-      <Highlights />
-      <Testimonials />
-      <About />
-      <Footer />
-    </React.Fragment>
+    <AppProvider value={{ stateGlobal, dispatchGlobal }}>
+      <ThemeProvider>
+        <RouterProvider router={router} />
+      </ThemeProvider>
+    </AppProvider>
   );
 }
 
