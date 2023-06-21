@@ -1,9 +1,0 @@
-#LL-SocialMediaWidget ul {
-  display: flex;
-  align-items: center;
-  gap: 0.625rem;
-}
-
-.LL-SocialIcon {
-  height: 25px;
-}

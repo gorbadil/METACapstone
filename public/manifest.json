@@ -1,29 +1,25 @@
 {
-  "short_name": "Little Lemon",
-  "name": "Little Lemon - Order and Book at your local Mediterranean Restaurant",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
-      "src": "little-lemon-logo.ico",
+      "src": "favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "little-lemon-logo.png",
+      "src": "logo192.png",
       "type": "image/png",
-      "sizes": "704x192"
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
     }
   ],
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff",
-  "shortcuts": [
-    {
-      "name": "Book a Table",
-      "short_name": "Book Table",
-      "description": "Book a Table at Little Lemon",
-      "url": "/bookings",
-      "icons": [{ "src": "little-lemon-logo.png", "sizes": "704x192" }]
-    }
-  ]
+  "background_color": "#ffffff"
 }
